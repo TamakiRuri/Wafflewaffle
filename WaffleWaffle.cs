@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using UdonSharp;
 using UnityEditor;
 using UnityEngine;
@@ -27,9 +28,11 @@ public class WaffleWaffle : UdonSharpBehaviour
     public override void OnPickupUseDown()
     {
         audioPlay =  UnityEngine.Random.Range(0, audioClips.Length);
-        SendCustomNetworkEvent(NetworkEventTarget.All, "SoundPlay");
+        SendCustomNetworkEvent(NetworkEventTarget.All, "SoundEvent");
     }
-
+    public void SoundEvent(){
+        SendCustomEventDelayedSeconds("SoundPlay",0.5f, VRC.Udon.Common.Enums.EventTiming.LateUpdate);
+    }
     public void SoundPlay(){
         if (audioClips.Length != 0 && volumes.Length != 0 && !targetAudioSource.isPlaying){
             targetAudioSource.clip = audioClips[audioPlay];
