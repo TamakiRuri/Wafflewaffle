@@ -47,7 +47,7 @@ public class WaffleWaffle : UdonSharpBehaviour
         }
     }
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR && !COMPILER_UDONSHARP
     public void ImportAudio(AudioClip[] l_audio){
         audioClips = l_audio;
     }
