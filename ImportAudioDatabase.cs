@@ -1,8 +1,9 @@
-#if UNITY_EDITOR
+#if UNITY_EDITOR && !COMPILER_UDONSHARP
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRC.Udon;
 
 public class ImportAudioDatabase : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class ImportAudioDatabase : MonoBehaviour
             l_volume[i] = audioList[i].volume;
         }
         return l_volume;
+    }
+    public void generateDatatoWaffle(){
+        var waffleUdon = (UdonBehaviour)gameObject.GetComponent(typeof(UdonBehaviour));
+        waffleUdon.SendMessage("ImportAudio", exportAudioData());
+        waffleUdon.SendMessage("ImportVolume", exportVolumeData());
     }
 }
 
