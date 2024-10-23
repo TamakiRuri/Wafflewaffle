@@ -107,6 +107,11 @@ public class WaffleImport : EditorWindow
         VisualElement root = rootVisualElement;
         root.Q<Label>("result").text = "Wait";
         wafflePlayer = (UdonBehaviour)root.Q<ObjectField>("waffle-player").value;
+        if (wafflePlayer == null) 
+        {
+            root.Q<Label>("result").text = "Please select a waffle player";
+            return;
+        }
         AudioClip[] l_clips = wafflePlayer.gameObject.GetComponent<ImportAudioDatabase>().exportAudioData();
         float[] l_volume = wafflePlayer.gameObject.GetComponent<ImportAudioDatabase>().exportVolumeData();
         AudioList[] l_list = new AudioList[l_clips.Length];

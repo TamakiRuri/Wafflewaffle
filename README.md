@@ -16,9 +16,7 @@ Easy import / 導入ツール付き
 
 Volume Control / 音量調整
 
-Does not include 3D models for now / 現時点では3Dモデルを同封していません
-
-It's a global object / グローバルオブジェクトです
+Global object / グローバルオブジェクトです
 
 ### Import/導入
 
