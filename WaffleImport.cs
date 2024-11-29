@@ -97,6 +97,7 @@ public class WaffleImport : EditorWindow
         root.Query<VisualElement>("iltemplate").ForEach(AudioClipHandler);
         }
         catch (Exception e){
+            root.Q<Label>("result").text = e.ToString();
             throw e;
         }
         generateDatatoCenter();

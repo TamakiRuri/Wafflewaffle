@@ -4,11 +4,7 @@
 
 A simple Udon random sound player for VRChat World with volume control
 
-Wafflewaffle はVRChat Worldで使えるシンプルなランダムサウンドプレーヤーです。サウンドトラック一つずつ音量が設定できますので、音量がバラバラになっても修正が簡単にできます。
-
-> ALPHA VERSION: SYNC FUNCTION **NOT TESTED**
-
-> ALPHAバージョン：同期機能は**テストされておりません。**
+Wafflewaffle はVRChat Worldで使えるシンプルなランダムサウンドプレーヤーです。オーディオクリップ一つずつ音量が設定できますので、音量がバラバラでも簡単に修正できます。
 
 ### Functions/機能
 
@@ -25,24 +21,24 @@ Download and import unitypackage from release page.
 リリースページでunitypackageをダウンロードし導入します。
 <br>
 
-In folder StudioSaphir/Wafflewaffle, drag the prefab to anywhere you want. 
+In folder StudioSaphir/Wafflewaffle, drag the prefab to anywhere you want. Wafflewaffle is the older version that rely on delays to make sure the value is synced, while the WafflewaffleManual uses manual syncing and is more reliable.
 
-StudioSaphir/Wafflewaffleのフォルダからプリハブを好きなところにD&Dします。
+StudioSaphir/Wafflewaffleのフォルダからプリハブを好きなところにD&Dします。Wafflewallfeは遅延で同期を確保する方法を利用する古いバージョンで、WafflewaffleManualは手動同期によって安定性が高くなっています。
 <br>
 
-In the toolbar /StudioSaphir/WaffleImport, set the Waffle inside and Click Reload. You need to do this every time you edit your waffle.
+In the toolbar /StudioSaphir/WaffleImport, set the Waffle(or Wafflewaffle inside the WafflewaffleManual object) inside and Click Reload. You need to do this every time you edit your waffle.
 
-ツールバーの/StudioSaphir/WaffleImportにさっきのWaffleを入れて、Reloadをクリックします。この作業は毎回編集する時に必要となります。
+ツールバーの/StudioSaphir/WaffleImportにさっきのWaffle(またはWafflewaffleManualオブジェクトの中にあるWafflewaffle)を入れて、Reloadをクリックします。この作業は毎回編集する時に必要となります。
 <br>
 
-Add your sound and volume (0~1) and click Import.
+Add your sound and volume (0~1) and click Import. 
 
-サウンドを追加して音量を設定します(0~1)。設定が終わりましたら、Importをクリックします。
+サウンドを追加して音量(0~1)を設定します。設定が終わりましたら、Importをクリックします。
 <br>
 
-Now it's finished. You can use inspector to see imported values.
+Now it's finished. You can use inspector to see imported values. Cross-importing data from/to both varient is also supported.
 
-これで完成です。WaffleのInspectorで導入されたデータが見れます。
+これで完成です。WaffleのInspectorで導入されたデータが見れます。WafflewaffleからManualバージョンのデータ導入とその逆方向の導入も同じ手順でできます。
 
 ### Change 3D Model/モデルの変更
 
