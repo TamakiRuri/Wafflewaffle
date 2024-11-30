@@ -8,6 +8,8 @@ using VRC.Udon;
 public class ImportAudioDatabase : MonoBehaviour
 {
     [SerializeField] private AudioList[] audioList;
+    [SerializeField] private bool isManual;
+    [SerializeField] private GameObject waffle;
 
     public void importAudioData(AudioClip[] l_clips, float[] l_volume){
         AudioList[] l_list = new AudioList[l_clips.Length];
@@ -32,7 +34,9 @@ public class ImportAudioDatabase : MonoBehaviour
         return l_volume;
     }
     public void generateDatatoWaffle(){
-        var waffleUdon = (UdonBehaviour)gameObject.GetComponent(typeof(UdonBehaviour));
+        UdonBehaviour waffleUdon;
+        if (isManual) waffleUdon = (UdonBehaviour)waffle.GetComponent(typeof(UdonBehaviour));
+        else waffleUdon = (UdonBehaviour)gameObject.GetComponent(typeof(UdonBehaviour));
         waffleUdon.SendMessage("ImportAudio", exportAudioData());
         waffleUdon.SendMessage("ImportVolume", exportVolumeData());
     }

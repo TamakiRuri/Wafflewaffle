@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
-using VRC.Udon;
+//using VRC.Udon;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -16,7 +16,7 @@ public class WaffleImport : EditorWindow
     private VisualTreeAsset m_VisualTreeAsset = default;
     [SerializeField]private VisualTreeAsset audioListTemplate;
 
-    [MenuItem("Studio Saphir/Waffle Import")]
+    [MenuItem("Tools/Studio Saphir/Waffle Import")]
     public static void ShowExample()
     {
         WaffleImport wnd = GetWindow<WaffleImport>();
@@ -25,7 +25,8 @@ public class WaffleImport : EditorWindow
     List<AudioList> audioLists=new List<AudioList>();
     List<AudioClip> F_audioClips = new List<AudioClip>();
     List<float> F_volume = new List<float>();
-    UdonBehaviour wafflePlayer;
+    // UdonBehaviour wafflePlayer;
+    ImportAudioDatabase wafflePlayer;
 
     public void CreateGUI()
     {
@@ -81,11 +82,10 @@ public class WaffleImport : EditorWindow
         F_audioClips.Add(l_clip);
         F_volume.Add(l_volume);
     }
-    //data related functions not implemented
     private void GenerateWaffleData(ClickEvent _event){
         VisualElement root = rootVisualElement;
         root.Q<Label>("result").text = "Wait";
-        wafflePlayer = (UdonBehaviour)root.Q<ObjectField>("waffle-player").value;
+        wafflePlayer = ((GameObject)root.Q<ObjectField>("waffle-player").value).GetComponent<ImportAudioDatabase>();
         if (wafflePlayer == null) {
             root.Q<Label>("result").text = "Please Select a Waffle Player";
             return;
@@ -100,21 +100,23 @@ public class WaffleImport : EditorWindow
             root.Q<Label>("result").text = e.ToString();
             throw e;
         }
-        generateDatatoCenter();
+        generateDatatoWaffle();
         root.Q<Label>("result").text = "Finished";
         Debug.Log("Generate Finished. \"Should Run Behavior\" Errors are safe to ignore.");
     }
     private void ReloadWaffleData(ClickEvent _event){
         VisualElement root = rootVisualElement;
         root.Q<Label>("result").text = "Wait";
-        wafflePlayer = (UdonBehaviour)root.Q<ObjectField>("waffle-player").value;
+        wafflePlayer = ((GameObject)root.Q<ObjectField>("waffle-player").value).GetComponent<ImportAudioDatabase>();
+        Debug.Log("Started Loading data.");
         if (wafflePlayer == null) 
         {
             root.Q<Label>("result").text = "Please select a waffle player";
             return;
         }
-        AudioClip[] l_clips = wafflePlayer.gameObject.GetComponent<ImportAudioDatabase>().exportAudioData();
-        float[] l_volume = wafflePlayer.gameObject.GetComponent<ImportAudioDatabase>().exportVolumeData();
+        AudioClip[] l_clips = wafflePlayer.exportAudioData();
+        float[] l_volume = wafflePlayer.exportVolumeData();
+        //Debug.Log("Started Loading data.");
         AudioList[] l_list = new AudioList[l_clips.Length];
         for (int i = 0; i < l_clips.Length; i++){
             l_list[i] = new AudioList(l_clips[i], l_volume[i]);
@@ -132,12 +134,11 @@ public class WaffleImport : EditorWindow
         };
         root.Q<Label>("result").text = "Finished";
     }
-    private void generateDatatoCenter(){
+    private void generateDatatoWaffle(){
         AudioClip[] l_audios = F_audioClips.ToArray();
-        wafflePlayer.SendMessage("ImportAudio", l_audios);
         float[] l_volume = F_volume.ToArray();
-        wafflePlayer.SendMessage("ImportVolume", l_volume);
-        wafflePlayer.GetComponent<ImportAudioDatabase>().importAudioData(l_audios, l_volume);
+        wafflePlayer.importAudioData(l_audios, l_volume);
+        wafflePlayer.generateDatatoWaffle();
     }
     
 }

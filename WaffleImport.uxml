@@ -1,7 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Button text="Generate Data" parse-escape-sequences="true" display-tooltip-when-elided="true" name="generate-data" />
     <ui:Button text="Reload Data" parse-escape-sequences="true" display-tooltip-when-elided="true" name="reload-data" />
-    <uie:ObjectField name="waffle-player" label="Waffle Player" type="VRC.Udon.UdonBehaviour, VRC.Udon" />
+    <uie:ObjectField name="waffle-player" label="Waffle Player" type="UnityEngine.GameObject, UnityEngine.CoreModule" />
     <ui:ListView name="audio-list" show-border="true" virtualization-method="DynamicHeight" reorderable="true" show-add-remove-footer="true" header-title="Audio List" show-foldout-header="true" fixed-item-height="66" selection-type="Multiple" reorder-mode="Animated" />
     <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="result" />
 </ui:UXML>

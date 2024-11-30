@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 10064710667464022}
   - component: {fileID: 8932424476394243782}
   - component: {fileID: 2614416472124190575}
+  - component: {fileID: 3842449657371325538}
   - component: {fileID: 3647628825865967220}
   - component: {fileID: 3473988845344757772}
   - component: {fileID: 3274820986999596922}
@@ -19,7 +20,6 @@ GameObject:
   - component: {fileID: 3778541080167930254}
   - component: {fileID: 5182603578196770263}
   - component: {fileID: 6794352018017823815}
-  - component: {fileID: 3842449657371325538}
   m_Layer: 13
   m_Name: WaffleWaffle
   m_TagString: Untagged
@@ -92,6 +92,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3842449657371325538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737935747989800393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483ce59e8d660624a83cd7f5b40a7dc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioList: []
+  isManual: 0
 --- !u!65 &3647628825865967220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -350,16 +364,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AllowCollisionOwnershipTransfer: 1
---- !u!114 &3842449657371325538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1737935747989800393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483ce59e8d660624a83cd7f5b40a7dc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioList: []
