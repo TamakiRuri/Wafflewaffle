@@ -2,6 +2,8 @@
 
 ![Pic](./WafflePic.png)
 
+![Pic_Waffle](./Waffle.png)
+
 A simple Udon random sound player for VRChat World with volume control
 
 Wafflewaffle はVRChat Worldで使えるシンプルなランダムサウンドプレーヤーです。オーディオクリップ一つずつ音量が設定できますので、音量がバラバラでも簡単に修正できます。
