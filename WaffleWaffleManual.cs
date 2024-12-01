@@ -8,6 +8,7 @@ using VRC.SDKBase;
 using VRC.Udon;
 using VRC.Udon.Common.Interfaces;
 
+[UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
 public class WaffleWaffleManual : UdonSharpBehaviour
 {
     [SerializeField]private AudioClip[] audioClips;
