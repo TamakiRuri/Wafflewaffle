@@ -1,6 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <ui:VisualElement name="iltemplate" style="flex-grow: 1;">
-        <uie:ObjectField name="audio-clip" label="Audio Clip" type="UnityEngine.AudioClip, UnityEngine.AudioModule" />
-        <ui:FloatField name="audio-volume" label="Volume" value="0" />
-    </ui:VisualElement>
-</ui:UXML>

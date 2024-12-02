@@ -11,7 +11,7 @@ public class ImportAudioDatabase : MonoBehaviour
     [SerializeField] private bool isManual;
     [SerializeField] private GameObject waffle;
 
-    public void importAudioData(AudioClip[] l_clips, float[] l_volume){
+    public void ImportAudioData(AudioClip[] l_clips, float[] l_volume){
         AudioList[] l_list = new AudioList[l_clips.Length];
         for (int i = 0; i < l_clips.Length; i++){
             AudioList l_entry = new AudioList(l_clips[i], l_volume[i]);
@@ -19,26 +19,26 @@ public class ImportAudioDatabase : MonoBehaviour
         }
         audioList = l_list;
     }
-    public AudioClip[] exportAudioData(){
+    public AudioClip[] ExportAudioData(){
         AudioClip[] l_clips = new AudioClip[audioList.Length];
         for (int i = 0; i < audioList.Length; i++){
             l_clips[i] = audioList[i].audioClip;
         }
         return l_clips;
     }
-    public float[] exportVolumeData(){
+    public float[] ExportVolumeData(){
         float[] l_volume = new float[audioList.Length];
         for (int i = 0; i < audioList.Length; i++){
             l_volume[i] = audioList[i].volume;
         }
         return l_volume;
     }
-    public void generateDatatoWaffle(){
+    public void GenerateDatatoWaffle(){
         UdonBehaviour waffleUdon;
         if (isManual) waffleUdon = (UdonBehaviour)waffle.GetComponent(typeof(UdonBehaviour));
         else waffleUdon = (UdonBehaviour)gameObject.GetComponent(typeof(UdonBehaviour));
-        waffleUdon.SendMessage("ImportAudio", exportAudioData());
-        waffleUdon.SendMessage("ImportVolume", exportVolumeData());
+        waffleUdon.SendMessage("ImportAudio", ExportAudioData());
+        waffleUdon.SendMessage("ImportVolume", ExportVolumeData());
     }
 }
 
