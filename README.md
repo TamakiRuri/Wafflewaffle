@@ -30,7 +30,7 @@ There are 2 types of prefabs. In folder StudioSaphir/Wafflewaffle, drag the pref
 
 Inside the Waffle Object, add your sound and volume (0~1) and click Import. **This process MUST be performed every time you edit the Waffle.**
 
-これで完成です。WaffleのInspectorで導入されたデータが見れます。（Manualバージョンでは子オブジェクトのUdonBehaviorにあります）
+これで完成です。WaffleのUdonBehaviorに導入されたデータが表示されます。（Manualバージョンでは子オブジェクトのUdonBehaviorにあります）
 
 Now it's finished. You can use inspector to see imported values in the udon behavior. (The udon behavior for Manual varient is inside the wafflewaffle child object)
 

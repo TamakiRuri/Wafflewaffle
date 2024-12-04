@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VRC.Udon;
 
 public class ImportAudioDatabase : MonoBehaviour
 {
@@ -34,11 +33,16 @@ public class ImportAudioDatabase : MonoBehaviour
         return l_volume;
     }
     public void GenerateDatatoWaffle(){
-        UdonBehaviour waffleUdon;
-        if (isManual) waffleUdon = (UdonBehaviour)waffle.GetComponent(typeof(UdonBehaviour));
-        else waffleUdon = (UdonBehaviour)gameObject.GetComponent(typeof(UdonBehaviour));
-        waffleUdon.SendMessage("ImportAudio", ExportAudioData());
-        waffleUdon.SendMessage("ImportVolume", ExportVolumeData());
+        if (isManual) {
+            WaffleWaffleManual waffleClass = waffle.GetComponent<WaffleWaffleManual>();
+            waffleClass.ImportAudio(ExportAudioData());
+            waffleClass.ImportVolume(ExportVolumeData());
+        }
+        else {
+            WaffleWaffle waffleClass = gameObject.GetComponent<WaffleWaffle>();
+            waffleClass.ImportAudio(ExportAudioData());
+            waffleClass.ImportVolume(ExportVolumeData());
+        }
     }
 }
 
@@ -48,6 +52,7 @@ public class ImportAudioDatabase : MonoBehaviour
         volume = l_volume;
     }
     public AudioClip audioClip;
+    [Range(0,1)]
     public float volume;
 }
 #endif
