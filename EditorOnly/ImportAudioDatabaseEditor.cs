@@ -29,7 +29,7 @@ public class ImportAudioDatabaseEditor : Editor
         }
         EditorGUILayout.LabelField("");
         EditorGUILayout.LabelField("Copy Data");
-        otherWaffle = (ImportAudioDatabase)EditorGUILayout.ObjectField("Other Waffle", otherWaffle, typeof(ImportAudioDatabase), true);
+        otherWaffle = (ImportAudioDatabase)EditorGUILayout.ObjectField("Target Waffle", otherWaffle, typeof(ImportAudioDatabase), true);
         if (GUILayout.Button("Copy Data")){
             try {
             otherWaffle.ImportAudioData(((ImportAudioDatabase)target).ExportAudioData(), ((ImportAudioDatabase)target).ExportVolumeData());
