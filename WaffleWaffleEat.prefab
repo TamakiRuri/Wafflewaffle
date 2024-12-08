@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 6754792909340025443}
   - component: {fileID: 7407533164001159905}
   m_Layer: 13
-  m_Name: WaffleWaffleManual
+  m_Name: WaffleWaffleEat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483ce59e8d660624a83cd7f5b40a7dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioList: []
+  audioList:
+  - audioClip: {fileID: 8300000, guid: ce58e3d6a8eccbe4eaa4c13ef8be83fc, type: 3}
+    volume: 1
+    doEat: 1
   waffle: {fileID: 5042522242041649317}
 --- !u!65 &8793828300229988180
 BoxCollider:
@@ -471,9 +474,11 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _udonSharpBackingUdonBehaviour: {fileID: 6145134567054953361}
-  audioClips: []
-  volumes: []
-  doEats: 
+  audioClips:
+  - {fileID: 8300000, guid: ce58e3d6a8eccbe4eaa4c13ef8be83fc, type: 3}
+  volumes:
+  - 1
+  doEats: 01
   eatParticle: {fileID: 4993827516378704576}
   targetAudioSource: {fileID: 0}
 --- !u!114 &6145134567054953361

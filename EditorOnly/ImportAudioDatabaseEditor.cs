@@ -32,7 +32,7 @@ public class ImportAudioDatabaseEditor : Editor
         otherWaffle = (ImportAudioDatabase)EditorGUILayout.ObjectField("Target Waffle", otherWaffle, typeof(ImportAudioDatabase), true);
         if (GUILayout.Button("Copy Data")){
             try {
-            otherWaffle.ImportAudioData(((ImportAudioDatabase)target).ExportAudioData(), ((ImportAudioDatabase)target).ExportVolumeData());
+            otherWaffle.ImportAudioData(managedScript.ExportAudioData(), managedScript.ExportVolumeData(), managedScript.ExportDoEatData());
             otherWaffle.GenerateDatatoWaffle();
             }
             catch (Exception e){

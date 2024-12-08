@@ -13,6 +13,8 @@ public class WaffleWaffleManual : UdonSharpBehaviour
 {
     [SerializeField]private AudioClip[] audioClips;
     [SerializeField]private float[] volumes;
+    [SerializeField]private bool[] doEats;
+    [SerializeField]private ParticleSystem eatParticle;
     [SerializeField]private AudioSource targetAudioSource;
     [UdonSynced] private int audioPlay;
     void Start()
@@ -43,21 +45,26 @@ public class WaffleWaffleManual : UdonSharpBehaviour
             if (volumes.Length == 1){
                 targetAudioSource.volume = volumes[0];
                 targetAudioSource.Play();
+                EmitEatParticle(0);
             }
             else if (audioClips.Length == volumes.Length){
                 targetAudioSource.volume = volumes[audioPlay];
                 targetAudioSource.Play();
+                EmitEatParticle(audioPlay);
             }
+        }
+    }
+    private void EmitEatParticle(int l_index){
+        if(doEats[l_index] && eatParticle != null){
+            eatParticle.Play();
         }
     }
 
 #if UNITY_EDITOR && !COMPILER_UDON
-    public void ImportAudio(AudioClip[] l_audio){
+    public void ImportDatas(AudioClip[] l_audio, float[] l_volume, bool[] l_doEat){
         audioClips = l_audio;
-    }
-
-    public void ImportVolume(float[] l_volume){
         volumes = l_volume;
+        doEats = l_doEat;
     }
 
 #endif

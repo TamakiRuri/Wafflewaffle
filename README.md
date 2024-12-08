@@ -6,7 +6,11 @@
 
 Wafflewaffle はVRChat Worldで使えるシンプルなランダムサウンドプレーヤーです。オーディオクリップ一つずつ音量が設定できますので、音量がバラバラでも簡単に修正できます。
 
+ワッフルとして食べられる（Useできる）機能も搭載しました。
+
 A simple Udon random sound player for VRChat World with volume control
+
+Eating(Using) is also available now
 
 Beta-b9からStackOverflowの問題で導入ツールが削除されました。代わりにプレハブや新機能のCopy Dataをご利用ください。
 
@@ -22,13 +26,13 @@ Global Object / グローバルオブジェクト
 
 ### 導入 / Import
 
-2種類のPrefabがあります。StudioSaphir/Wafflewaffleのフォルダからプリハブを好きなところにD&Dします。Wafflewallfeは遅延で同期を確保する方法を利用する古いバージョンで、WafflewaffleManualは手動同期によって安定性が高くなっています。設定の手順はほぼ同じです。**データを正しく導入するために、PrefabをUnpackしてからご利用ください。**
+2種類のPrefabがあります。StudioSaphir/Wafflewaffleのフォルダからプリハブを好きなところにD&Dします。Wafflewallfeはランダムサウンドを出すオブジェクトで、設定する必要がありますが、WaffleEatはそのままUseすると食べるサウンドとパーティクルが発生します。**データを正しく導入するために、PrefabをUnpackしてからご利用ください。**
 
-There are 2 types of prefabs. In folder StudioSaphir/Wafflewaffle, drag the prefab to anywhere you want. Wafflewaffle is the older version that rely on delays to make sure the value is synced, while the WafflewaffleManual uses manual syncing and is more reliable. The process to import is roughly the same.**Please unpack the prefab before using this asset. Or the data won't be correctly generated.**
+There are 2 types of prefabs. In folder StudioSaphir/Wafflewaffle, drag the prefab to anywhere you want. Wafflewaffle is the random sound player that requires user setup, and WaffleEat is a waffle object that plays a biting sound and shows some particles when being used. Waffle Eat can be used without following steps.**Please unpack the prefab before using this asset. Or the data won't be correctly generated.**
 
-シーンにあるWaffleまたはWaffleManualを開き、サウンドを追加して音量(0~1)を設定します。設定が終わりましたら、Importをクリックします。**この作業は毎回編集する時に必要となります。**
+シーンにあるWaffleまたはWaffleManualを開き、サウンドを追加して音量(0~1)を設定します。Do Eatを有効にすると、その音を流すときに食べるパーティクルが生成されます。設定が終わりましたら、Importをクリックします。**この作業は毎回編集する時に必要となります。**
 
-Inside the Waffle Object, add your sound and volume (0~1) and click Import. **This process MUST be performed every time you edit the Waffle.**
+Inside the Waffle Object, add your sound and volume (0~1) and click Import. Enabling Do Eat will show eating particles when the sound is played. **This process MUST be performed every time you edit the Waffle.**
 
 これで完成です。WaffleのUdonBehaviorに導入されたデータが表示されます。（Manualバージョンでは子オブジェクトのUdonBehaviorにあります）
 
