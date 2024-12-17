@@ -4,11 +4,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ImportAudioDatabase : MonoBehaviour
+public class WaffleImport : MonoBehaviour
 {
     [SerializeField] private AudioList[] audioList;
     //[SerializeField] private bool isManual;
     [SerializeField] private GameObject waffle;
+
+    [SerializeField] private bool allowInterruption;
 
     public void ImportAudioData(AudioClip[] l_clips, float[] l_volume, bool[] l_doEats){
         AudioList[] l_list = new AudioList[l_clips.Length];
@@ -42,7 +44,7 @@ public class ImportAudioDatabase : MonoBehaviour
     public void GenerateDatatoWaffle(){
         // if (isManual) {
             WaffleWaffleManual waffleClass = waffle.GetComponent<WaffleWaffleManual>();
-            waffleClass.ImportDatas(ExportAudioData(),ExportVolumeData(),ExportDoEatData());
+            waffleClass.ImportDatas(ExportAudioData(),ExportVolumeData(),ExportDoEatData(), allowInterruption);
         // }
         // else {
         //     WaffleWaffle waffleClass = gameObject.GetComponent<WaffleWaffle>();

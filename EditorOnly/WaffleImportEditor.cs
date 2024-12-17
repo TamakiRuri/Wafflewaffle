@@ -10,14 +10,14 @@ using UnityEngine.UIElements;
 
 
 
-[CustomEditor(typeof(ImportAudioDatabase))]
-public class ImportAudioDatabaseEditor : Editor
+[CustomEditor(typeof(WaffleImport))]
+public class WaffleImportEditor : Editor
 {
-    ImportAudioDatabase otherWaffle;
+    WaffleImport otherWaffle;
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-        ImportAudioDatabase managedScript = (ImportAudioDatabase)target;
+        WaffleImport managedScript = (WaffleImport)target;
         if (GUILayout.Button("Generate Data")){
             try {
             managedScript.GenerateDatatoWaffle();
@@ -29,7 +29,7 @@ public class ImportAudioDatabaseEditor : Editor
         }
         EditorGUILayout.LabelField("");
         EditorGUILayout.LabelField("Copy Data");
-        otherWaffle = (ImportAudioDatabase)EditorGUILayout.ObjectField("Target Waffle", otherWaffle, typeof(ImportAudioDatabase), true);
+        otherWaffle = (WaffleImport)EditorGUILayout.ObjectField("Target Waffle", otherWaffle, typeof(WaffleImport), true);
         if (GUILayout.Button("Copy Data")){
             try {
             otherWaffle.ImportAudioData(managedScript.ExportAudioData(), managedScript.ExportVolumeData(), managedScript.ExportDoEatData());
