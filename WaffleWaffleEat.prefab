@@ -109,6 +109,7 @@ MonoBehaviour:
     volume: 1
     doEat: 1
   waffle: {fileID: 5042522242041649317}
+  allowInterruption: 0
 --- !u!65 &8793828300229988180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gain: 0
-  Far: 10
+  Far: 5
   Near: 2
   VolumetricRadius: 0
   EnableSpatialization: 1
@@ -481,6 +482,7 @@ MonoBehaviour:
   doEats: 01
   eatParticle: {fileID: 4993827516378704576}
   targetAudioSource: {fileID: 0}
+  allowInterruption: 0
 --- !u!114 &6145134567054953361
 MonoBehaviour:
   m_ObjectHideFlags: 0
